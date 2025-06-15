@@ -1,0 +1,143 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 94.1%; /* #F0F0F0 Light Gray */
+    --foreground: 0 0% 20%; /* #333333 Dark Gray */
+
+    --card: 0 0% 100%; /* White for cards */
+    --card-foreground: 0 0% 20%; /* Dark Gray text on cards */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+
+    --primary: 197 71% 73%; /* #87CEEB Sky Blue */
+    --primary-foreground: 0 0% 10%; /* Dark text on Sky Blue */
+
+    --secondary: 0 0% 96.1%; /* Default secondary, can adjust if needed */
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 85%; /* Slightly darker muted for better contrast on light gray */
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 120 73% 75%; /* #90EE90 Soft Green */
+    --accent-foreground: 0 0% 10%; /* Dark text on Soft Green */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 80%; /* Adjusted border for better visibility on light gray */
+    --input: 0 0% 89.8%;
+    --ring: 197 71% 65%; /* Ring color based on primary */
+
+    --radius: 0.5rem;
+
+    --chart-1: 197 71% 60%;
+    --chart-2: 120 60% 60%;
+    --chart-3: 40 80% 60%;
+    --chart-4: 220 70% 60%;
+    --chart-5: 300 70% 60%;
+
+    /* Custom colors for study page buttons */
+    --custom-orange: 25 95% 53%; /* approx. #F97316 Orange-500 */
+    --custom-orange-foreground: 0 0% 100%; /* White */
+    --custom-yellow: 48 96% 59%; /* approx. #FACC15 Yellow-400 */
+    --custom-yellow-foreground: 0 0% 20%; /* Dark Gray */
+  }
+
+  .dark {
+    /* Keeping dark mode similar to default shadcn, can be customized later if needed */
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 197 71% 73%; /* Sky Blue */
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 120 73% 75%; /* Soft Green */
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 197 71% 65%;
+
+    --custom-orange: 25 95% 53%; 
+    --custom-orange-foreground: 0 0% 100%;
+    --custom-yellow: 48 96% 59%;
+    --custom-yellow-foreground: 0 0% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), sans-serif;
+    padding-bottom: 70px; /* Space for bottom navigation */
+  }
+}
+
+/* Additional global styles from original CSS */
+.flashcard {
+  min-height: 250px;
+  @apply flex flex-col justify-center items-center;
+}
+
+.spinner {
+  border: 8px solid hsl(var(--muted));
+  border-top: 8px solid hsl(var(--primary));
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+button, input[type="text"], input[type="url"], textarea {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#cardBrowserTable th,
+#cardBrowserTable td {
+  @apply p-3 text-left align-top;
+}
+
+#cardBrowserTable th {
+  @apply bg-muted;
+}
+
+.chart-container {
+  @apply relative h-[300px] w-full max-w-2xl mx-auto;
+}
+
+#bottomNav {
+  @apply shadow-[0_-2px_5px_rgba(0,0,0,0.1)];
+}
+.nav-button {
+  @apply flex-grow p-3 text-center font-medium text-gray-600 border-t-2 border-transparent transition-colors duration-200 ease-in-out;
+}
+.nav-button:hover {
+  @apply text-primary;
+}
+.active-nav-button {
+  @apply text-primary border-primary;
+}
